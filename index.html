@@ -48,12 +48,16 @@
     #scroll-bg {
       position: fixed;
       inset: 0;
-      background:
-        linear-gradient(168deg, #FFA114 0 18%, rgba(255,161,20,0) 18.15%),
-        linear-gradient(112deg, #F0282E 0 46%, rgba(240,40,46,0) 46.15%),
-        linear-gradient(118deg, #1A5CFF 0%, #0F7BFF 55%, #2E9BFF 100%);
+      background: linear-gradient(112deg, #FFA114 0 15%, #F0282E 15% 47%, #0F7BFF 47% 100%);
+      background-size: 240% 240%;
+      background-position: 12% 50%;
+      animation: cj-shift 5.5s cubic-bezier(.45,.05,.55,.95) infinite alternate;
       z-index: -1;
       pointer-events: none;
+    }
+    @keyframes cj-shift {
+      0% { background-position: 12% 50%; }
+      100% { background-position: 88% 50%; }
     }
     /* 스크롤이 About에 닿을 때까지 흰색이 덮어옴 (JS가 --scroll-fade 갱신) */
     #scroll-bg::after {
@@ -393,6 +397,7 @@
 
     /* ── SECTION COMMON ── */
     section { padding: 100px 60px; }
+    #activities { padding-bottom: 180px; }
     .section-inner { max-width: 1100px; margin: 0 auto; }
 
     .section-label {
@@ -967,9 +972,6 @@
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; } }
 
     /* CTA 섹션이 보이면 하단 고정 컨택 바를 아래로 내려 숨김 */
-    footer { transition: transform 0.4s cubic-bezier(.22,.61,.36,1); }
-    html.cta-in-view footer { transform: translateY(100%); }
-    html.cta-in-view .scroll-top { bottom: 28px; }
 
     /* ── CTA: reference-matched sticker composition ── */
     /* Embedded subset keeps the heavy display face intact when opened locally. */
@@ -1721,38 +1723,6 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
       </div>
 
     </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta-join" id="join">
-  <div class="cta-join-inner">
-    <div>
-      <h2>지금,<span>세상에 없던 영상을 함께 만들고 싶습니다.</span></h2>
-      <p>캐릭터를 무너뜨리지 않는 생성 파이프라인, 세로 화면에서 100편 넘게 다져온 문법,<br>통한 방식을 팀이 반복할 수 있게 남기는 습관 — AI 프로덕션에 필요한 세 가지를 갖고 왔습니다.</p>
-      <a class="cta-btn" href="mailto:hojin315@naver.com"><span class="cta-btn-label">연락하기</span>hojin315@naver.com →</a>
-    </div>
-    <!-- Shared viewBox preserves the reference angles, overlap, and proportions at every width. -->
-    <svg class="sticker-stack" viewBox="0 0 700 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-      <g class="sticker sticker-1" transform="translate(186.3 108.65) rotate(-9.62)">
-        <g class="sticker-art">
-        <rect x="-164.15" y="-71.65" width="328.3" height="143.3" fill="#0F7BFF" />
-        <text x="0" y="41" font-size="120" fill="#fff">HIRE</text>
-        </g>
-      </g>
-      <g class="sticker sticker-2" transform="translate(388 257.6) rotate(3.69)">
-        <g class="sticker-art">
-        <rect x="-278.2" y="-59.4" width="556.4" height="118.8" fill="#fff" />
-        <text x="0" y="25.5" font-size="80" fill="#191919">HOJIN YOO</text>
-        </g>
-      </g>
-      <g class="sticker sticker-3" transform="translate(554.3 413.2) rotate(10.62)">
-        <g class="sticker-art">
-        <rect x="-116.65" y="-52.75" width="233.3" height="105.5" fill="#fff" />
-        <text x="0" y="25.5" font-size="80" fill="#000">NOW</text>
-        </g>
-      </g>
-    </svg>
   </div>
 </section>
 
